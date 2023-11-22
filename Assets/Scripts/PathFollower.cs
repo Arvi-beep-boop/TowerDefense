@@ -7,7 +7,7 @@ public class PathFollower : MonoBehaviour
 {
     [SerializeField] private float offset;
     [SerializeField] private float speed;
-    private List<Transform> wayPoints;
+    private List<Transform> wayPoints = new List<Transform> { };
     private int currentPoint;
 
     private void Awake()
@@ -31,12 +31,9 @@ public class PathFollower : MonoBehaviour
 
     bool isTargetReached()
     {
-        if((gameObject.transform.position - wayPoints[currentPoint].position).magnitude <= offset) 
-        {
-            return true;
-        }
-        return false;
+        return (gameObject.transform.position - wayPoints[currentPoint].position).magnitude <= offset;
     }
+
     private void Move()
     {
         Vector3 direction = (wayPoints[currentPoint].position - gameObject.transform.position).normalized;
