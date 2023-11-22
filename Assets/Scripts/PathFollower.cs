@@ -7,20 +7,20 @@ public class PathFollower : MonoBehaviour
 {
     [SerializeField] private float offset;
     [SerializeField] private float speed;
-    private List<Transform> wayPoints = new List<Transform> { };
+    private List<Transform> waypoints = new List<Transform> { };
     private int currentPoint;
 
     private void Awake()
     {
         currentPoint = 0;
         GameObject parent = GameObject.Find("Path");
-        parent.GetComponentsInChildren<Transform>(false, wayPoints);
-        wayPoints.RemoveAt(0); // skip parent's transform
+        parent.GetComponentsInChildren<Transform>(false, waypoints);
+        waypoints.RemoveAt(0); // skip parent's transform
     }
    
     void Update()
     {
-        if (currentPoint >= wayPoints.Count) 
+        if (currentPoint >= waypoints.Count) 
         {
             Debug.Log("Final wayPoint has been reached! TODO: ?");
             return;
@@ -31,12 +31,12 @@ public class PathFollower : MonoBehaviour
 
     bool isTargetReached()
     {
-        return (gameObject.transform.position - wayPoints[currentPoint].position).magnitude <= offset;
+        return (gameObject.transform.position - waypoints[currentPoint].position).magnitude <= offset;
     }
 
     private void Move()
     {
-        Vector3 direction = (wayPoints[currentPoint].position - gameObject.transform.position).normalized;
+        Vector3 direction = (waypoints[currentPoint].position - gameObject.transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
     }
 }
