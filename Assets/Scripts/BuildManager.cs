@@ -12,6 +12,7 @@ public class BuildManager : MonoBehaviour
     private RaycastHit hit;
 
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private float rotation; // in degrees
     
     
     void Update()
@@ -23,6 +24,7 @@ public class BuildManager : MonoBehaviour
             {
                 PlaceObject();
             }
+            if (Input.GetKeyDown(KeyCode.R)) { RotateObject(); }
        }
     }
 
@@ -36,6 +38,7 @@ public class BuildManager : MonoBehaviour
         }
     }
 
+   
     public void SelectObject(int index)
     {
         selectedTurret = Instantiate(turrets[index], postion, transform.rotation);
@@ -44,5 +47,9 @@ public class BuildManager : MonoBehaviour
     public void PlaceObject()
     {
         selectedTurret = null;
+    }
+    private void RotateObject()
+    {
+        selectedTurret.transform.Rotate(Vector3.up, rotation);
     }
 }

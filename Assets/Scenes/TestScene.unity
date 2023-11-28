@@ -1147,6 +1147,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
+  rotation: 45
 --- !u!4 &1100532898
 Transform:
   m_ObjectHideFlags: 0
