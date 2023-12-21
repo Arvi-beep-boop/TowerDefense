@@ -1144,10 +1144,15 @@ MonoBehaviour:
   - {fileID: 1848867073409542475, guid: 329100907568b794b90cc252b7b7513f, type: 3}
   - {fileID: 4682109131814391572, guid: 9b89bc17abf1d9b4dbecb20947c8c1ba, type: 3}
   - {fileID: 5663569570696447845, guid: 8f0db004b3295554288f01e643510f35, type: 3}
+  canPlace: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 8
   rotation: 45
+  materials:
+  - {fileID: 2100000, guid: 282f005f8fc1fba46ad96410f5d923ff, type: 2}
+  - {fileID: 2100000, guid: b249823beacb83244904a6fb61c53c15, type: 2}
+  - {fileID: 2100000, guid: 388b8f0795854e14a99042d31ef94db8, type: 2}
 --- !u!4 &1100532898
 Transform:
   m_ObjectHideFlags: 0
