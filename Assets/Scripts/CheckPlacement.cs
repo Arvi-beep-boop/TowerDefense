@@ -7,7 +7,7 @@ public class CheckPlacement : MonoBehaviour
     BuildManager buildManager;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Object"))
+        if(other.gameObject.CompareTag("Turret"))
         {
             buildManager.canPlace = false;
         }
@@ -15,7 +15,7 @@ public class CheckPlacement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Object"))
+        if (other.gameObject.CompareTag("Turret"))
         {
             buildManager.canPlace = true;
         }

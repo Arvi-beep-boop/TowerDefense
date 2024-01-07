@@ -26,6 +26,11 @@ public class BuildManager : MonoBehaviour
             {
                 PlaceObject();
             }
+            if(Input.GetMouseButtonDown(1) && selectedTurret != null)
+            {
+                Destroy(selectedTurret.gameObject);
+                // TO DO: HANDLE CANCELING THE PLACEMENT/BUYING, return money or smth
+            }
             if (Input.GetKeyDown(KeyCode.R)) { RotateObject(); }
             
        }
@@ -48,7 +53,7 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-   
+  
     public void SelectObject(int index)
     {
         if (selectedTurret) return;
