@@ -37,13 +37,21 @@ public class BuildManager : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit, 1000, layerMask)) 
         {
-            postion = hit.point;
+            if (selectedTurret)
+            {
+                postion = new Vector3(hit.point.x, selectedTurret.GetComponent<Renderer>().localBounds.max.y, hit.point.z);
+            }
+            else
+            {
+                postion = hit.point;
+            }
         }
     }
 
    
     public void SelectObject(int index)
     {
+        if (selectedTurret) return;
         selectedTurret = Instantiate(turrets[index], postion, transform.rotation);
     }
 
