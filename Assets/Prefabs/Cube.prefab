@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3312513434559309724}
   - component: {fileID: -6468863655865084277}
   - component: {fileID: -6553148091824711951}
+  - component: {fileID: 85250006595490978}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Turret
@@ -168,3 +169,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73d3abae8923ec45ba88a8e10582771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &85250006595490978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682109131814391572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb3440b289a9aa438796c1242bebdd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 460c7fb859ca353488cb6215310eaeae, type: 3}
