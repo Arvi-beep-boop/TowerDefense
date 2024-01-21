@@ -58,6 +58,7 @@ public class BuildManager : MonoBehaviour
     {
         if (selectedTurret) return;
         selectedTurret = Instantiate(turrets[index], postion, transform.rotation);
+        Debug.Log("object selected");
     }
 
     public void PlaceObject()
