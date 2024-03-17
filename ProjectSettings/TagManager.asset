@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Object
   - Turret
+  - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
