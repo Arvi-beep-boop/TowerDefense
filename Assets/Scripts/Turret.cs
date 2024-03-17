@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] Ammo ammo;
     //TO DO: consider implementing props as scriptable objects?
     public float range = 5f;
     public float turnSpeed = 10f;
     //public string enemyTag = "Enemy";
     private string enemyTag = "Enemy";
     public Transform target; // target to shoot at
+    bool shooting = false;
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
@@ -24,6 +27,11 @@ public class Turret : MonoBehaviour
         if(target!=null)
         {
             RotateTurret(target);
+            if(!shooting)
+            {
+                InvokeRepeating("Fire", 1, 1);
+                shooting = true;
+            }
         }
         
     }
@@ -54,6 +62,7 @@ public class Turret : MonoBehaviour
         else
         {
             target = null;
+            shooting = false;
         }
     }
     
@@ -64,5 +73,11 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         //Vector3 rotation = lookRotation.eulerAngles;
         transform.rotation = Quaternion.Euler(0, rotation.y, 0);
+    }
+
+    void Fire()
+    {
+        var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        projectile.GetComponent<Projectile>().Ammo = ammo;
     }
 }

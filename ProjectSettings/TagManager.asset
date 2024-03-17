@@ -7,6 +7,7 @@ TagManager:
   - Object
   - Turret
   - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX

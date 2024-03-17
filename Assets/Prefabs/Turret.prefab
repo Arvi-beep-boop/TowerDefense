@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0343a0709d8d814e876be9f4268e78b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4953707486524460706, guid: e90e0e01b95b83d43aa4e9dc47f83042,
+    type: 3}
+  ammo: {fileID: 11400000, guid: d9d7535b6e039704aaddd57c305d19da, type: 2}
   range: 5
   turnSpeed: 10
   target: {fileID: 0}
