@@ -7,13 +7,12 @@ public class Turret : MonoBehaviour
 {
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Ammo ammo;
-    //TO DO: consider implementing props as scriptable objects?
-    public float range = 5f;
-    public float turnSpeed = 10f;
-    //public string enemyTag = "Enemy";
+    [SerializeField] TurretData data;
+  
     private string enemyTag = "Enemy";
     public Transform target; // target to shoot at
     bool shooting = false;
+
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
@@ -29,7 +28,7 @@ public class Turret : MonoBehaviour
             RotateTurret(target);
             if(!shooting)
             {
-                InvokeRepeating("Fire", 1, 1);
+                InvokeRepeating("Fire", data.fireRate, data.fireRate);
                 shooting = true;
             }
         }
@@ -38,7 +37,7 @@ public class Turret : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, data.range);
     }
 
     void UpdateTarget() // reload an array of enemies at an interval of X s, keep track of enemies in scene
@@ -55,7 +54,7 @@ public class Turret : MonoBehaviour
                 shortestDistance = distance;
             }
         }
-        if(shortestDistance <= range && nearestEnemy != null)
+        if(shortestDistance <= data.range && nearestEnemy != null)
         {
             target = nearestEnemy.transform;
         }
@@ -70,7 +69,7 @@ public class Turret : MonoBehaviour
     {
         Vector3 direction = transform.position - target.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
-        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * data.turnSpeed).eulerAngles;
         //Vector3 rotation = lookRotation.eulerAngles;
         transform.rotation = Quaternion.Euler(rotation.x, rotation.y, 0);
     }
