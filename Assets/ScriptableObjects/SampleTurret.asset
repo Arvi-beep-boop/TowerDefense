@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10.7
   pierce: 0.44
-  fireRate: 0
+  fireRate: 1
   range: 7.16
-  turnSpeed: 0
+  turnSpeed: 10
   icon: {fileID: 0}
   targettingType: 5

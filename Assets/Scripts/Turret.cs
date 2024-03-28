@@ -61,7 +61,6 @@ public class Turret : MonoBehaviour
         else
         {
             target = null;
-            shooting = false;
         }
     }
     
@@ -76,7 +75,14 @@ public class Turret : MonoBehaviour
 
     void Fire()
     {
-        var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation, this.gameObject.transform);
         projectile.GetComponent<Projectile>().Ammo = ammo;
+    }
+
+    public void EnemyDestroyed()
+    {
+        target = null;
+        shooting = false;
+        CancelInvoke("Fire");
     }
 }

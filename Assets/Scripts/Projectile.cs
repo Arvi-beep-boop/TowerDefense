@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour
         if(Physics.Raycast(new Ray(transform.position, transform.forward * (-1)), out RaycastHit hit, Ammo.velocity * Time.deltaTime))
         {
             transform.position = hit.point;
+            hit.collider.SendMessage("SetProjectileParent", this.transform.parent.gameObject);
             hit.collider.SendMessage("ApplyDamage", Ammo.damage, SendMessageOptions.DontRequireReceiver);
             GetComponent<MeshRenderer>().enabled = false;
             Destroy(gameObject, 1f);
