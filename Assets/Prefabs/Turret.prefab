@@ -50,8 +50,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4953707486524460706, guid: e90e0e01b95b83d43aa4e9dc47f83042,
     type: 3}
   ammo: {fileID: 11400000, guid: d9d7535b6e039704aaddd57c305d19da, type: 2}
-  range: 5
-  turnSpeed: 10
+  data: {fileID: 11400000, guid: 4cc50aaa959158447bb66996cbe2cb99, type: 2}
   target: {fileID: 0}
 --- !u!23 &6076141224875588791
 MeshRenderer:
