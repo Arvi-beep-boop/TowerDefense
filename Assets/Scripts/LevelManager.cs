@@ -52,4 +52,5 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Game Over");
         }
     }
+    // showing how merge works
 }
