@@ -58,12 +58,14 @@ public class BuildManager : MonoBehaviour
     {
         if (selectedTurret) return;
         selectedTurret = Instantiate(turrets[index], postion, transform.rotation);
+        selectedTurret.GetComponent<Turret>().canShooting = false;
         Debug.Log("object selected");
     }
 
     public void PlaceObject()
     {
         selectedTurret.GetComponent<MeshRenderer>().material = materials[2];
+        selectedTurret.GetComponent<Turret>().canShooting = true;
         selectedTurret = null;
     }
     private void RotateObject()

@@ -12,7 +12,7 @@ public class Turret : MonoBehaviour
     private string enemyTag = "Enemy";
     public Transform target; // target to shoot at
     bool shooting = false;
-
+    public bool canShooting = false;
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
@@ -23,7 +23,7 @@ public class Turret : MonoBehaviour
         if (target == null)
             return;
         // LookRotation
-        if(target!=null)
+        if(target!=null && canShooting == true)
         {
             RotateTurret(target);
             if(!shooting)
