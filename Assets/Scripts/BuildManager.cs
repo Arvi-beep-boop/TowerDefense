@@ -17,8 +17,8 @@ public class BuildManager : MonoBehaviour
 
     void Update()
     {
-       if(selectedTurret != null)
-       {
+        if (selectedTurret != null)
+        {
             UpdateMaterials();
 
             selectedTurret.transform.position = postion;
@@ -26,21 +26,21 @@ public class BuildManager : MonoBehaviour
             {
                 PlaceObject();
             }
-            if(Input.GetMouseButtonDown(1) && selectedTurret != null)
+            if (Input.GetMouseButtonDown(1) && selectedTurret != null)
             {
                 Destroy(selectedTurret.gameObject);
                 // TO DO: HANDLE CANCELING THE PLACEMENT/BUYING, return money or smth
             }
             if (Input.GetKeyDown(KeyCode.R)) { RotateObject(); }
-            
-       }
+
+        }
     }
 
     private void FixedUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if(Physics.Raycast(ray, out hit, 1000, layerMask)) 
+        if (Physics.Raycast(ray, out hit, 1000, layerMask))
         {
             if (selectedTurret)
             {
@@ -53,17 +53,19 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-  
+
     public void SelectObject(int index)
     {
         if (selectedTurret) return;
         selectedTurret = Instantiate(turrets[index], postion, transform.rotation);
+        selectedTurret.GetComponent<Turret>().canShooting = false;
         Debug.Log("object selected");
     }
 
     public void PlaceObject()
     {
         selectedTurret.GetComponent<MeshRenderer>().material = materials[2];
+        selectedTurret.GetComponent<Turret>().canShooting = true;
         selectedTurret = null;
     }
     private void RotateObject()
@@ -72,7 +74,7 @@ public class BuildManager : MonoBehaviour
     }
     void UpdateMaterials()
     {
-        if(canPlace)
+        if (canPlace)
         {
             selectedTurret.GetComponent<MeshRenderer>().material = materials[0];
         }

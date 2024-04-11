@@ -8,11 +8,11 @@ public class Turret : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Ammo ammo;
     [SerializeField] TurretData data;
-  
+
     private string enemyTag = "Enemy";
     public Transform target; // target to shoot at
     bool shooting = false;
-
+    public bool canShooting = false;
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
@@ -23,16 +23,16 @@ public class Turret : MonoBehaviour
         if (target == null)
             return;
         // LookRotation
-        if(target!=null)
+        if (target != null && canShooting == true)
         {
             RotateTurret(target);
-            if(!shooting)
+            if (!shooting)
             {
                 InvokeRepeating("Fire", data.fireRate, data.fireRate);
                 shooting = true;
             }
         }
-        
+
     }
     private void OnDrawGizmosSelected()
     {
@@ -48,13 +48,13 @@ public class Turret : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
-            if( distance < shortestDistance)
+            if (distance < shortestDistance)
             {
                 nearestEnemy = enemy;
                 shortestDistance = distance;
             }
         }
-        if(shortestDistance <= data.range && nearestEnemy != null)
+        if (shortestDistance <= data.range && nearestEnemy != null)
         {
             target = nearestEnemy.transform;
         }
@@ -63,7 +63,7 @@ public class Turret : MonoBehaviour
             target = null;
         }
     }
-    
+
     void RotateTurret(Transform target)
     {
         Vector3 direction = transform.position - target.position;
