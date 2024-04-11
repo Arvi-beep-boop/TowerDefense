@@ -1793,7 +1793,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 618629355}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Yes
+        m_MethodName: QuitConfirmYesButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4407,7 +4407,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 618629355}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: StartGameButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5401,8 +5401,6 @@ MonoBehaviour:
   pivotPoint: {fileID: 1314724949}
   rotationSpeed: 0.05
   creditsSpeed: 0.17
-  mainMenuScene:
-    m_Handle: 0
   confirmationWindow: {fileID: 1193584685}
   creditsWindow: {fileID: 427653210}
   backCreditsButton: {fileID: 773722156}
@@ -5755,7 +5753,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 618629355}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: QuitGameButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6960,7 +6958,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 618629355}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Back
+        m_MethodName: BackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11080,7 +11078,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 618629355}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: No
+        m_MethodName: QuitConfirmNoButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11945,7 +11943,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 618629355}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Settings
+        m_MethodName: SettingsButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16451,7 +16449,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 618629355}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Back
+        m_MethodName: BackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32474,7 +32472,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 618629355}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Credits
+        m_MethodName: CreditsButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
