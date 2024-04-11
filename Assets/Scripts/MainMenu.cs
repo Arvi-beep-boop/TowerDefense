@@ -11,23 +11,18 @@ public class MainMenu : MonoBehaviour
 
     bool isCreditsWindowOpen;
 
-    public Scene mainMenuScene;
-    public GameObject confirmationWindow;
-    public GameObject creditsWindow;
-    public GameObject backCreditsButton;
-    public GameObject settingsWindow;
-    public GameObject buttonsInMenu;
+    private Scene mainMenuScene;
+    [SerializeField] private GameObject confirmationWindow;
+    [SerializeField] private GameObject creditsWindow;
+    [SerializeField] private GameObject backCreditsButton;
+    [SerializeField] private GameObject settingsWindow;
+    [SerializeField] private GameObject buttonsInMenu;
     
     Vector3 creditsStartPos = new Vector3();
     void Start()
     {
         creditsStartPos = new Vector3(creditsWindow.transform.position.x, creditsWindow.transform.position.y, creditsWindow.transform.position.z);
-        buttonsInMenu.active = true;
-        settingsWindow.active = false;
-        creditsWindow.active = false;
-        backCreditsButton.active = false;
-        isCreditsWindowOpen = false;
-        confirmationWindow.active = false;
+        MainMenuSetActive(true);
         mainMenuScene = SceneManager.GetActiveScene();
         pivotPoint.transform.rotation = new Quaternion(0, 0, 0, 0);
     }
@@ -38,7 +33,7 @@ public class MainMenu : MonoBehaviour
         OnLoadMenuScene();
     }
 
-    public void OnLoadMenuScene()
+    private void OnLoadMenuScene()
     {
         if (mainMenuScene.name.Equals("MainMenu"))
         {
@@ -53,47 +48,58 @@ public class MainMenu : MonoBehaviour
 
 
     //Buttons 
-    public void StartGame()
+    private void StartGameButton()
     {
         SceneManager.LoadScene("Level1");
     }
-    public void Settings()
+    private void SettingsButton()
     {
-        buttonsInMenu.active = false;
-        settingsWindow.active = true;
+        MainMenuSetActive(false);
+        settingsWindow.SetActive(true);
     }
 
-    public void Credits()
+    private void CreditsButton()
     {
-        buttonsInMenu.active = false;
-        backCreditsButton.active = true;
-        creditsWindow.active = true;
+        MainMenuSetActive(false);
+        backCreditsButton.SetActive(true);
+        creditsWindow.SetActive(true);
         isCreditsWindowOpen = true;
     }
 
-    public void QuitGame()
+    private void QuitGameButton()
     {
-        confirmationWindow.active = true;
+        confirmationWindow.SetActive(true);
     }
-    public void Yes()
+    private void QuitConfirmYesButton()
     {
         Application.Quit();
     }
 
-    public void No()
+    private void QuitConfirmNoButton()
     {
-        confirmationWindow.active = false;
+        confirmationWindow.SetActive(false);
     }
     
-    public void Back()
+    private void BackButton()
     {
-        buttonsInMenu.active = true;
-        settingsWindow.active = false;
-        creditsWindow.active = false;
-        backCreditsButton.active = false;
-        isCreditsWindowOpen = false;
+        MainMenuSetActive(true);
         creditsWindow.transform.position = new Vector3(creditsStartPos.x, creditsStartPos.y, creditsStartPos.z);
     }
     
-    
+    private void MainMenuSetActive(bool isActive)
+    {
+        if(isActive)
+        {
+            buttonsInMenu.SetActive(true);
+            settingsWindow.SetActive(false);
+            creditsWindow.SetActive(false);
+            backCreditsButton.SetActive(false);
+            isCreditsWindowOpen = false;
+            confirmationWindow.SetActive(false);
+        }
+        else if(!isActive)
+        {
+            buttonsInMenu.SetActive(false);
+        }
+    }
 }
