@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TO DO: Move to another script, Item maybe?
-
 
 [System.Serializable]
 public class Inventory
