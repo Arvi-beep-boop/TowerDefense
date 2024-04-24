@@ -77,6 +77,7 @@ public class Turret : MonoBehaviour
     {
         var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation, this.gameObject.transform);
         projectile.GetComponent<Projectile>().Ammo = ammo;
+        projectile.transform.parent = null;
     }
 
     public void EnemyDestroyed()
