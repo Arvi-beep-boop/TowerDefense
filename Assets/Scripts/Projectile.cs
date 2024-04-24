@@ -5,8 +5,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Ammo Ammo;
-    public float velocity;
-    public float damage;
+    float velocity;
+    float damage;
     void Start()
     {
         velocity = Ammo.velocity;
