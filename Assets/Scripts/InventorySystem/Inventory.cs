@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // TO DO: Move to another script, Item maybe?
-public enum ItemType
-{
-    NONE, SAMPLETYPE
-}
+
 
 [System.Serializable]
 public class Inventory
@@ -17,6 +14,7 @@ public class Inventory
         public int count; //Item count
         public int maxAllowed; //Max item count allowed in a slot
         public ItemType type;
+        public Sprite icon;
 
         public Slot()
         {
@@ -33,10 +31,11 @@ public class Inventory
             }
             return true;
         }
-        public void AddItem(ItemType itemTypeToAdd)
+        public void AddItem(Item itemToAdd)
         {
             count++;
-            this.type = itemTypeToAdd;
+            this.type = itemToAdd.type;
+            this.icon = itemToAdd.itemIcon;
         }
     }
 
@@ -51,14 +50,14 @@ public class Inventory
         }
     }
 
-    public void AddItem(ItemType itemTypeToAdd)
+    public void AddItem(Item itemToAdd)
     {
         // if item is already in the inventory
         foreach(Slot slot in slots)
         {
-            if(slot.type == itemTypeToAdd && slot.CanAddItem())
+            if(slot.type == itemToAdd.type && slot.CanAddItem())
             {
-                slot.AddItem(itemTypeToAdd);
+                slot.AddItem(itemToAdd);
             }
         }
         // if item is not in the inventory
@@ -66,7 +65,7 @@ public class Inventory
         {
             if (slot.type == ItemType.NONE)
             {
-                slot.AddItem(itemTypeToAdd);
+                slot.AddItem(itemToAdd);
                 return;
             }
         }
