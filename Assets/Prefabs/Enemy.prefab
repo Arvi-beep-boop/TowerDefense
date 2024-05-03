@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2294783078971045035}
   - component: {fileID: 7727481102875907931}
   - component: {fileID: 6400271452578739901}
+  - component: {fileID: 8194894594855675847}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -138,8 +139,22 @@ MonoBehaviour:
   maxHealth: 20
   damage: 20
   moneyValue: 2
+  enemyHealthBar: {fileID: 8194894594855675847}
+--- !u!114 &8194894594855675847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557939840086793235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af69959d712a464695edf89ea6a4206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   healthBar: {fileID: 5012596507570950939}
   healthBarBackGround: {fileID: 6121822570614080147}
+  enemy: {fileID: 6400271452578739901}
 --- !u!1 &2766946120219022557
 GameObject:
   m_ObjectHideFlags: 0

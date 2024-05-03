@@ -11,14 +11,13 @@ public class Enemy : MonoBehaviour
     public int damage = 20;
     public int moneyValue = 2; // Value in money for killing this enemy
     private GameObject projectileParent = null;
-    [SerializeField] private Image healthBar;
-    [SerializeField] private Image healthBarBackGround;
+    [SerializeField] private EnemyHealthBar enemyHealthBar;
     
     // takes damage amount and source turret (one that shot) to let it know if the enemy is destroyed.
     public void ApplyDamage(int damage) 
     {
-        healthBar.enabled = true;
-        healthBarBackGround.enabled = true;
+        enemyHealthBar.healthBar.enabled = true;
+        enemyHealthBar.healthBarBackGround.enabled = true;
         health -= damage;
         Debug.Log("Damage applied!");
         if (health <= 0)
@@ -33,15 +32,6 @@ public class Enemy : MonoBehaviour
     {
         projectileParent = parent;
     }
-    private void Start()
-    {
-        maxHealth = health;
-        healthBar.enabled = false;
-        healthBarBackGround.enabled = false;
-    }
-    void Update()
-    {
-        healthBar.fillAmount = health / maxHealth;   
-    }
+
 
 }
