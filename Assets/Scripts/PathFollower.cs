@@ -23,6 +23,9 @@ public class PathFollower : MonoBehaviour
         if (currentPoint >= waypoints.Count) 
         {
             Debug.Log("Final wayPoint has been reached! TODO: ?");
+            if (this.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
+                LevelManager.instance.RemoveHealth(enemy.damage);
+            Destroy(this.gameObject);
             return;
         }
         Move();
